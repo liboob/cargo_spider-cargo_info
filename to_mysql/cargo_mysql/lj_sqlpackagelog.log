@@ -1,0 +1,147 @@
+[INFO] 2022-06-29 10:24:26,947 [connection_workflow.py:179, start] Pika version 1.2.1 connecting to ('127.0.0.1', 5672)
+[INFO] 2022-06-29 10:24:26,948 [io_services_utils.py:345, _on_writable] Socket connected: <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-06-29 10:24:26,948 [connection_workflow.py:428, _on_transport_establishment_done] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>).
+[INFO] 2022-06-29 10:24:26,951 [connection_workflow.py:293, _report_completion_and_cleanup] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
+[INFO] 2022-06-29 10:24:26,951 [connection_workflow.py:725, _report_completion_and_cleanup] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
+[INFO] 2022-06-29 10:24:26,951 [blocking_connection.py:453, _create_connection] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
+[INFO] 2022-06-29 10:24:26,951 [blocking_connection.py:1246, __init__] Created channel=1
+[ERROR] 2022-06-29 10:24:27,425 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_info` where package_name= 'abstract_integers' and package_type='cargo' None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
+[ERROR] 2022-06-29 10:24:27,446 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_version` where package_name= 'abstract_integers' and package_type='cargo' None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
+[ERROR] 2022-06-29 10:24:28,514 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_info` where package_name= 'abstract_integers' and package_type='cargo' None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
+[ERROR] 2022-06-29 10:24:28,523 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_version` where package_name= 'abstract_integers' and package_type='cargo' None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
+[INFO] 2022-06-29 10:24:29,544 [blocking_connection.py:787, close] Closing connection (200): Normal shutdown
+[INFO] 2022-06-29 10:24:29,544 [channel.py:535, close] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
+[INFO] 2022-06-29 10:24:29,546 [channel.py:1123, _on_closeok] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
+[INFO] 2022-06-29 10:24:29,546 [connection.py:1295, close] Closing connection (200): 'Normal shutdown'
+[INFO] 2022-06-29 10:24:29,546 [io_services_utils.py:731, abort] Aborting transport connection: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-06-29 10:24:29,547 [io_services_utils.py:904, _initiate_abort] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-06-29 10:24:29,547 [io_services_utils.py:869, _deactivate] Deactivating transport: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-06-29 10:24:29,547 [connection.py:1996, _on_stream_terminated] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+[INFO] 2022-06-29 10:24:29,547 [connection.py:2065, _on_stream_terminated] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+[INFO] 2022-06-29 10:24:29,547 [io_services_utils.py:882, _close_and_finalize] Closing transport socket and unlinking: state=3; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-06-29 10:24:29,547 [blocking_connection.py:525, _flush_output] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
+Closing connection (200): 'Normal shutdown'
+Aborting transport connection: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+_AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+Deactivating transport: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+Closing transport socket and unlinking: state=3; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')

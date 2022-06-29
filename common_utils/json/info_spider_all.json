@@ -1,0 +1,156 @@
+{
+  "categories": [],
+  "crate": {
+    "badges": [],
+    "categories": [],
+    "created_at": "2020-09-05T09:42:59.386154+00:00",
+    "description": "Rust bindings for the AAudio API.",
+    "documentation": "https://docs.rs/aaudio",
+    "downloads": 611,
+    "exact_match": false,
+    "homepage": null,
+    "id": "aaudio",
+    "keywords": [
+      "sound",
+      "aaudio",
+      "audio",
+      "android"
+    ],
+    "links": {
+      "owner_team": "/api/v1/crates/aaudio/owner_team",
+      "owner_user": "/api/v1/crates/aaudio/owner_user",
+      "owners": "/api/v1/crates/aaudio/owners",
+      "reverse_dependencies": "/api/v1/crates/aaudio/reverse_dependencies",
+      "version_downloads": "/api/v1/crates/aaudio/downloads",
+      "versions": null
+    },
+    "max_stable_version": "0.1.1",
+    "max_version": "0.1.1",
+    "name": "aaudio",
+    "newest_version": "0.1.1",
+    "recent_downloads": 63,
+    "repository": "https://github.com/endragor/aaudio-rs/",
+    "updated_at": "2020-09-05T09:47:20.976096+00:00",
+    "versions": [
+      280246,
+      280240
+    ]
+  },
+  "keywords": [
+    {
+      "crates_cnt": 81,
+      "created_at": "2014-11-26T10:03:29.609041+00:00",
+      "id": "sound",
+      "keyword": "sound"
+    },
+    {
+      "crates_cnt": 4,
+      "created_at": "2020-01-07T22:06:54.832922+00:00",
+      "id": "aaudio",
+      "keyword": "aaudio"
+    },
+    {
+      "crates_cnt": 484,
+      "created_at": "2014-11-20T21:45:18.898840+00:00",
+      "id": "audio",
+      "keyword": "audio"
+    },
+    {
+      "crates_cnt": 96,
+      "created_at": "2015-10-08T04:39:07.697975+00:00",
+      "id": "android",
+      "keyword": "android"
+    }
+  ],
+  "versions": [
+    {
+      "audit_actions": [
+        {
+          "action": "publish",
+          "time": "2020-09-05T09:47:20.976096+00:00",
+          "user": {
+            "avatar": "https://avatars2.githubusercontent.com/u/2417849?v=4",
+            "id": 99704,
+            "login": "endragor",
+            "name": "Ruslan Mustakov",
+            "url": "https://github.com/endragor"
+          }
+        }
+      ],
+      "crate": "aaudio",
+      "crate_size": 12354,
+      "created_at": "2020-09-05T09:47:20.976096+00:00",
+      "dl_path": "/api/v1/crates/aaudio/0.1.1/download",
+      "downloads": 533,
+      "features": {},
+      "id": 280246,
+      "license": "MIT",
+      "links": {
+        "authors": "/api/v1/crates/aaudio/0.1.1/authors",
+        "dependencies": "/api/v1/crates/aaudio/0.1.1/dependencies",
+        "version_downloads": "/api/v1/crates/aaudio/0.1.1/downloads"
+      },
+      "num": "0.1.1",
+      "published_by": {
+        "avatar": "https://avatars2.githubusercontent.com/u/2417849?v=4",
+        "id": 99704,
+        "login": "endragor",
+        "name": "Ruslan Mustakov",
+        "url": "https://github.com/endragor"
+      },
+      "readme_path": "/api/v1/crates/aaudio/0.1.1/readme",
+      "updated_at": "2020-09-05T09:47:20.976096+00:00",
+      "yanked": false
+    },
+    {
+      "audit_actions": [
+        {
+          "action": "publish",
+          "time": "2020-09-05T09:42:59.386154+00:00",
+          "user": {
+            "avatar": "https://avatars2.githubusercontent.com/u/2417849?v=4",
+            "id": 99704,
+            "login": "endragor",
+            "name": "Ruslan Mustakov",
+            "url": "https://github.com/endragor"
+          }
+        },
+        {
+          "action": "yank",
+          "time": "2020-09-05T09:46:50.675976+00:00",
+          "user": {
+            "avatar": "https://avatars2.githubusercontent.com/u/2417849?v=4",
+            "id": 99704,
+            "login": "endragor",
+            "name": "Ruslan Mustakov",
+            "url": "https://github.com/endragor"
+          }
+        }
+      ],
+      "crate": "aaudio",
+      "crate_size": 12350,
+      "created_at": "2020-09-05T09:42:59.386154+00:00",
+      "dl_path": "/api/v1/crates/aaudio/0.1.0/download",
+      "downloads": 78,
+      "features": {},
+      "id": 280240,
+      "license": "MIT",
+      "links": {
+        "authors": "/api/v1/crates/aaudio/0.1.0/authors",
+        "dependencies": "/api/v1/crates/aaudio/0.1.0/dependencies",
+        "version_downloads": "/api/v1/crates/aaudio/0.1.0/downloads"
+      },
+      "num": "0.1.0",
+      "published_by": {
+        "avatar": "https://avatars2.githubusercontent.com/u/2417849?v=4",
+        "id": 99704,
+        "login": "endragor",
+        "name": "Ruslan Mustakov",
+        "url": "https://github.com/endragor"
+      },
+      "readme_path": "/api/v1/crates/aaudio/0.1.0/readme",
+      "updated_at": "2020-09-05T09:46:52.627192+00:00",
+      "yanked": true
+    }
+  ]
+}

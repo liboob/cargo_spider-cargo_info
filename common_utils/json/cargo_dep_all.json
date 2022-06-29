@@ -1,0 +1,290 @@
+{
+  "dependencies": [
+    {
+      "crate_id": "aaudio-sys",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 1659177,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.1",
+      "target": null,
+      "version_id": 280246
+    },
+    {
+      "crate_id": "libc",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 1659178,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.2",
+      "target": null,
+      "version_id": 280246
+    }
+  ]
+}
+,
+{
+  "dependencies": [
+    {
+      "crate_id": "base64ct",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936080,
+      "kind": "normal",
+      "optional": false,
+      "req": "^1.0.2",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "criterion",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936096,
+      "kind": "dev",
+      "optional": false,
+      "req": "^0.3.5",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "ibe",
+      "default_features": true,
+      "downloads": 0,
+      "features": [
+        "cgwkv",
+        "mr"
+      ],
+      "id": 3936083,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.2.0-beta.1",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "irma",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936084,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.2.1",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "rand",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936086,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.8.4",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "rmp-serde",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936087,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.15.5",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "serde",
+      "default_features": true,
+      "downloads": 0,
+      "features": [
+        "derive"
+      ],
+      "id": 3936088,
+      "kind": "normal",
+      "optional": false,
+      "req": "^1.0.126",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "serde-big-array",
+      "default_features": true,
+      "downloads": 0,
+      "features": [
+        "const-generics"
+      ],
+      "id": 3936089,
+      "kind": "normal",
+      "optional": false,
+      "req": "^0.3.2",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "serde_json",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936090,
+      "kind": "normal",
+      "optional": false,
+      "req": "^1.0.68",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "serde-transcode",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936097,
+      "kind": "dev",
+      "optional": false,
+      "req": "^1.1.1",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "subtle",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936091,
+      "kind": "normal",
+      "optional": false,
+      "req": "^2.3",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "tiny-keccak",
+      "default_features": true,
+      "downloads": 0,
+      "features": [
+        "sha3"
+      ],
+      "id": 3936092,
+      "kind": "normal",
+      "optional": false,
+      "req": "^2.0.2",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "aead",
+      "default_features": true,
+      "downloads": 0,
+      "features": [
+        "stream",
+        "alloc"
+      ],
+      "id": 3936078,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.4.3",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "aes-gcm",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936079,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.9.4",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "cipher",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936081,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.3.0",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "futures",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936082,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.3.21",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "js-sys",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936085,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.3.55",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "wasm-bindgen",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936093,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.2.78",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "wasm-bindgen-futures",
+      "default_features": true,
+      "downloads": 0,
+      "features": [],
+      "id": 3936094,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.4.28",
+      "target": null,
+      "version_id": 540971
+    },
+    {
+      "crate_id": "web-sys",
+      "default_features": true,
+      "downloads": 0,
+      "features": [
+        "SubtleCrypto",
+        "AesGcmParams",
+        "Crypto",
+        "CryptoKey"
+      ],
+      "id": 3936095,
+      "kind": "normal",
+      "optional": true,
+      "req": "^0.3.55",
+      "target": null,
+      "version_id": 540971
+    }
+  ]
+}

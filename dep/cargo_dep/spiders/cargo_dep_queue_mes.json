@@ -1,0 +1,23 @@
+{
+  "package_name": "ab_glyph",
+  "dep_version_url": [
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.15/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.14/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.13/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.12/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.11/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.10/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.9/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.8/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.7/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.6/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.5/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.4/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.3/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.2/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.1/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.2.0/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.1.0/dependencies",
+    "https://crates.io//api/v1/crates/ab_glyph/0.0.0/dependencies"
+  ]
+}

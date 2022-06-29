@@ -1,0 +1,90 @@
+[ERROR] 2022-06-28 19:21:37,659 [mysql_client.py:85, _execute] sql get_one error: select id from package_file where `file_name`='2' and `version`='1' None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'172.25.0.101' (using password: YES)")
+[ERROR] 2022-06-28 19:21:37,691 [mysql_client.py:85, _execute] sql execute error: insert into `package_file`(`version`, `file_name`, `file_type`, `file_md5`, `package_id`, `package_type`) values('1', '2', '123', '123', 123, '123') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'172.25.0.101' (using password: YES)")
+sql execute error: insert into `package_file`(`version`, `file_name`, `file_type`, `file_md5`, `package_id`, `package_type`) values('1', '2', '123', '123', 123, '123') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
+    connection = self._available_connections.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
+    with self.pool.get_connection().cursor(cursor_class) as cursor:
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
+    connection = self.make_connection()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
+    return self.connection_class(**self.connection_kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
+    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
+    self.connect()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
+    self._request_authentication()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
+    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'172.25.0.101' (using password: YES)")

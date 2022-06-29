@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  crawler:
+    image: cargo_mysql
+    build: .
+    command: >-
+      bash -c "cd /usr/src && python3 cargo_mysql/mysql_run.py"
+

@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  crawler:
+    image: cargo_publish_queue
+    build: .
+    command: >-
+      bash -c "cd /usr/src && python3 queue_run.py"
+
