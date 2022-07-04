@@ -6,7 +6,7 @@ from common_utils.common_methods import *
 from common_utils.env_settings import *
 from package.lj_sqlpackage import *
 
-insert_to_db_tool = SqlTool(host='mysql.center.spdx.cn', port=3306, user='data_center', pwd='123456', db='52KIXFwbh4zG',
+insert_to_db_tool = SqlTool(host='mysql.center.spdx.cn', port=3306, user='data_center', pwd='52KIXFwbh4zG', db='data_center',
                             charset='utf8mb4')
 
 logger = LoggerClass('python-package', 'cargo', is_print=1)
@@ -171,52 +171,63 @@ class Cargo_dep:
         for result in self.get_result(package_name):
             package_name = result.get('id')
             package_version = result.get('verson')
+            dependency_type = 'nor'
+            dep_mes = PackageDeps(package_name, package_type,
+                                  package_version)
+            # dependency_kind = 'normal'
             for dependency in result.get('dependencies', []):
-                dependency_kind = dependency.get('kind')
-                if dependency_kind != 'dev':
-                    dependency_package_name = dependency.get('crate_id')
-                    dependency_package_version = dependency.get('req').replace('^', '')
-                    table_name = 'cargo_spider_queue'
-                    lj_package_id = LjIdClass().get_lj_package_id(package_name, package_type, table_name)
-                    # lj_package_id = self.get_lj_package_id(package_name, package_type, table_name)
-                    dependency_lj_package_id = LjIdClass().get_lj_package_id(dependency_package_name, package_type,
-                                                                             table_name)
-                    # dependency_lj_package_id = self.get_lj_package_id(dependency_package_name)
-                    compare_str = package_name + package_version + dependency_kind + dependency_package_name + dependency_package_version
-                    md5 = hashlib.md5()
-                    md5.update(compare_str.encode("utf8"))
-                    compare_md5 = md5.hexdigest()
-                    insert_data = {"lj_package_id": lj_package_id, 'package_version': package_version,
-                                   'dependency_package_name': dependency_package_name,
-                                   "dependency_package_version": dependency_package_version,
-                                   'package_name': package_name,
-                                   'dependency_lj_package_id': dependency_lj_package_id,
-                                   'dependency_kind': None,
-                                   'compare_md5': compare_md5}
-                    log_data = {
-                        'log_type': '入库',
-                        'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_package_dependencies',
-                        'data_content': {
-                            'package_name': package_name,
-                            'package_version': package_version,
-                            'package_type': 'cargo'
-                        },
-                        'data_status': None
-                    }
-                    try:
-                        dep_mes = PackageDeps(package_name, package_type, dependency_package_version,
-                                              dependency_type='', requirement=[])
-                        is_insert = insert_to_db_tool.package_version(dep_mes)
-                        # is_insert = data_to_db(insert_data, self.xx, 'cargo_package_dependencies', increment_fields)
-                        if is_insert == 1:
-                            log_data['data_status'] = '新增'
-                        elif is_insert == 2:
-                            log_data['data_status'] = '更新'
-                        if is_insert != 0:
-                            logger.info(f'{package_name} 入库成功', extra=log_data)
-                    except Exception as e:
-                        logger.error(f'{package_name} 入库失败，{e}', extra=log_data)
-                    # print(insert_data)
+                # dependency_kind = dependency.get('kind')
+                # print(dependency)
+                dependency_package_version = dependency.get('req')
+                dependency_package_name = dependency.get('crate_id')
+                print(dependency_package_name, dependency_package_version)
+                dep_mes.restructure(dependency_package_name, dependency_package_version,1,2)
+                # if dependency_kind != 'dev':
+                #     dependency_package_name = dependency.get('crate_id')
+                #     dependency_package_version = dependency.get('req').replace('^', '')
+                # table_name = 'cargo_spider_queue'
+                # lj_package_id = LjIdClass().get_lj_package_id(package_name, package_type, table_name)
+                # lj_package_id = self.get_lj_package_id(package_name, package_type, table_name)
+                # dependency_lj_package_id = LjIdClass().get_lj_package_id(dependency_package_name, package_type,
+                #                                                          table_name)
+                # dependency_lj_package_id = self.get_lj_package_id(dependency_package_name)
+                # compare_str = package_name + package_version + dependency_kind + dependency_package_name + dependency_package_version
+                # md5 = hashlib.md5()
+                # md5.update(compare_str.encode("utf8"))
+                # compare_md5 = md5.hexdigest()
+                # insert_data = {"lj_package_id": lj_package_id,
+                #                'package_version': package_version,
+                #                'dependency_package_name': dependency_package_name,
+                #                "dependency_package_version": dependency_package_version,
+                #                'package_name': package_name,
+                #                'dependency_lj_package_id': dependency_lj_package_id,
+                #                'dependency_kind': None,
+                #                'compare_md5': compare_md5}
+            log_data = {
+                'log_type': '入库',
+                'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_package_dependencies',
+                'data_content': {
+                    'package_name': package_name,
+                    'package_version': package_version,
+                    'package_type': 'cargo'
+                },
+                'data_status': None
+            }
+            try:
+                dependency_type = 'nor'
+                # dep_mes = PackageDeps(package_name, package_type, '', dependency_type,
+                #                       package_version, dependency_package_version)
+                is_insert = insert_to_db_tool.package_deps(dep_mes)
+                # is_insert = data_to_db(insert_data, self.xx, 'cargo_package_dependencies', increment_fields)
+                if is_insert == 1:
+                    log_data['data_status'] = '新增'
+                elif is_insert == 2:
+                    log_data['data_status'] = '更新'
+                if is_insert != 0:
+                    logger.info(f'{package_name} 入库成功', extra=log_data)
+            except Exception as e:
+                logger.error(f'{package_name} 入库失败，{e}', extra=log_data)
+            # print(insert_data)
             self.xx.commit()
             self.collection_dep.update({'_id': result.get('_id')}, {'$set': {"is_insert": 1}})
 

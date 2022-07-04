@@ -1,147 +1,1115 @@
-[INFO] 2022-06-29 10:24:26,947 [connection_workflow.py:179, start] Pika version 1.2.1 connecting to ('127.0.0.1', 5672)
-[INFO] 2022-06-29 10:24:26,948 [io_services_utils.py:345, _on_writable] Socket connected: <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-[INFO] 2022-06-29 10:24:26,948 [connection_workflow.py:428, _on_transport_establishment_done] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>).
-[INFO] 2022-06-29 10:24:26,951 [connection_workflow.py:293, _report_completion_and_cleanup] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
-[INFO] 2022-06-29 10:24:26,951 [connection_workflow.py:725, _report_completion_and_cleanup] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
-[INFO] 2022-06-29 10:24:26,951 [blocking_connection.py:453, _create_connection] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
-[INFO] 2022-06-29 10:24:26,951 [blocking_connection.py:1246, __init__] Created channel=1
-[ERROR] 2022-06-29 10:24:27,425 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_info` where package_name= 'abstract_integers' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:23,793 [connection_workflow.py:179, start] Pika version 1.2.1 connecting to ('127.0.0.1', 5672)
+[INFO] 2022-07-04 21:23:23,794 [io_services_utils.py:345, _on_writable] Socket connected: <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52947), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-07-04 21:23:23,795 [connection_workflow.py:428, _on_transport_establishment_done] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>).
+[INFO] 2022-07-04 21:23:23,800 [connection_workflow.py:293, _report_completion_and_cleanup] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
+[INFO] 2022-07-04 21:23:23,800 [connection_workflow.py:725, _report_completion_and_cleanup] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
+[INFO] 2022-07-04 21:23:23,800 [blocking_connection.py:453, _create_connection] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>
+[INFO] 2022-07-04 21:23:23,801 [blocking_connection.py:1246, __init__] Created channel=1
+[INFO] 2022-07-04 21:23:24,553 [mysql_client.py:83, _execute] sql get_one finish 0.040030s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:24,560 [mysql_client.py:83, _execute] sql get_one finish 0.005985s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.23' None
+[INFO] 2022-07-04 21:23:24,565 [mysql_client.py:83, _execute] sql execute finish 0.005092s: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+[INFO] 2022-07-04 21:23:24,569 [mysql_client.py:83, _execute] sql get_one finish 0.004065s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:24,606 [mysql_client.py:83, _execute] sql execute finish 0.004581s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.23', 'MIT', '2022-06-18', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:25,623 [mysql_client.py:83, _execute] sql get_one finish 0.006868s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:25,631 [mysql_client.py:83, _execute] sql get_one finish 0.007176s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.22' None
+[INFO] 2022-07-04 21:23:25,638 [mysql_client.py:83, _execute] sql get_one finish 0.005941s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:25,672 [mysql_client.py:83, _execute] sql execute finish 0.007517s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.22', 'MIT', '2022-06-17', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,680 [mysql_client.py:83, _execute] sql get_one finish 0.006048s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,685 [mysql_client.py:83, _execute] sql get_one finish 0.005700s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.21' None
+[INFO] 2022-07-04 21:23:26,696 [mysql_client.py:83, _execute] sql get_one finish 0.010452s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,727 [mysql_client.py:83, _execute] sql execute finish 0.006437s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.21', 'MIT', '2022-06-17', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,733 [mysql_client.py:83, _execute] sql get_one finish 0.005224s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,740 [mysql_client.py:83, _execute] sql get_one finish 0.006496s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.20' None
+[INFO] 2022-07-04 21:23:26,745 [mysql_client.py:83, _execute] sql get_one finish 0.005237s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,778 [mysql_client.py:83, _execute] sql execute finish 0.005195s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.20', 'MIT', '2022-05-22', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,784 [mysql_client.py:83, _execute] sql get_one finish 0.006073s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,790 [mysql_client.py:83, _execute] sql get_one finish 0.005804s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.19' None
+[INFO] 2022-07-04 21:23:26,798 [mysql_client.py:83, _execute] sql get_one finish 0.007833s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,831 [mysql_client.py:83, _execute] sql execute finish 0.004408s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.19', 'MIT', '2022-05-22', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,838 [mysql_client.py:83, _execute] sql get_one finish 0.005969s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,844 [mysql_client.py:83, _execute] sql get_one finish 0.005996s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.18' None
+[INFO] 2022-07-04 21:23:26,850 [mysql_client.py:83, _execute] sql get_one finish 0.005665s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,879 [mysql_client.py:83, _execute] sql execute finish 0.005048s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.18', 'MIT', '2021-11-15', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,886 [mysql_client.py:83, _execute] sql get_one finish 0.005990s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,892 [mysql_client.py:83, _execute] sql get_one finish 0.006051s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.17' None
+[INFO] 2022-07-04 21:23:26,900 [mysql_client.py:83, _execute] sql get_one finish 0.007661s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,929 [mysql_client.py:83, _execute] sql execute finish 0.004935s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.17', 'MIT', '2021-11-15', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,935 [mysql_client.py:83, _execute] sql get_one finish 0.005701s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,941 [mysql_client.py:83, _execute] sql get_one finish 0.005552s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.16' None
+[INFO] 2022-07-04 21:23:26,946 [mysql_client.py:83, _execute] sql get_one finish 0.005746s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,978 [mysql_client.py:83, _execute] sql execute finish 0.005482s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.16', 'MIT', '2021-11-15', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:26,985 [mysql_client.py:83, _execute] sql get_one finish 0.006284s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:26,990 [mysql_client.py:83, _execute] sql get_one finish 0.005649s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.15' None
+[INFO] 2022-07-04 21:23:26,996 [mysql_client.py:83, _execute] sql get_one finish 0.006098s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,027 [mysql_client.py:83, _execute] sql execute finish 0.005353s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.15', 'MIT', '2021-09-11', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,033 [mysql_client.py:83, _execute] sql get_one finish 0.005947s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,039 [mysql_client.py:83, _execute] sql get_one finish 0.006060s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.14' None
+[INFO] 2022-07-04 21:23:27,044 [mysql_client.py:83, _execute] sql get_one finish 0.005542s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,075 [mysql_client.py:83, _execute] sql execute finish 0.004904s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.14', 'MIT', '2021-09-11', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,082 [mysql_client.py:83, _execute] sql get_one finish 0.005180s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,087 [mysql_client.py:83, _execute] sql get_one finish 0.005145s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.13' None
+[INFO] 2022-07-04 21:23:27,092 [mysql_client.py:83, _execute] sql get_one finish 0.005424s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,122 [mysql_client.py:83, _execute] sql execute finish 0.004794s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.13', 'MIT', '2021-06-24', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,128 [mysql_client.py:83, _execute] sql get_one finish 0.005228s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,133 [mysql_client.py:83, _execute] sql get_one finish 0.005468s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.12' None
+[INFO] 2022-07-04 21:23:27,138 [mysql_client.py:83, _execute] sql get_one finish 0.005043s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,172 [mysql_client.py:83, _execute] sql execute finish 0.006266s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.12', 'MIT', '2021-06-06', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,178 [mysql_client.py:83, _execute] sql get_one finish 0.005795s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,183 [mysql_client.py:83, _execute] sql get_one finish 0.005308s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.11' None
+[INFO] 2022-07-04 21:23:27,189 [mysql_client.py:83, _execute] sql get_one finish 0.005193s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,221 [mysql_client.py:83, _execute] sql execute finish 0.006435s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.11', 'MIT', '2021-06-03', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,227 [mysql_client.py:83, _execute] sql get_one finish 0.005776s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,233 [mysql_client.py:83, _execute] sql get_one finish 0.006132s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.10' None
+[INFO] 2022-07-04 21:23:27,239 [mysql_client.py:83, _execute] sql get_one finish 0.005540s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,270 [mysql_client.py:83, _execute] sql execute finish 0.005429s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.10', 'MIT', '2021-04-23', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,276 [mysql_client.py:83, _execute] sql get_one finish 0.006341s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,283 [mysql_client.py:83, _execute] sql get_one finish 0.006580s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.9' None
+[INFO] 2022-07-04 21:23:27,289 [mysql_client.py:83, _execute] sql get_one finish 0.006089s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,323 [mysql_client.py:83, _execute] sql execute finish 0.005373s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.9', 'MIT', '2021-04-23', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,328 [mysql_client.py:83, _execute] sql get_one finish 0.005018s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,334 [mysql_client.py:83, _execute] sql get_one finish 0.005524s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.8' None
+[INFO] 2022-07-04 21:23:27,340 [mysql_client.py:83, _execute] sql get_one finish 0.006194s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,375 [mysql_client.py:83, _execute] sql execute finish 0.005461s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.8', 'MIT', '2021-04-19', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,381 [mysql_client.py:83, _execute] sql get_one finish 0.004956s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,387 [mysql_client.py:83, _execute] sql get_one finish 0.005991s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.7' None
+[INFO] 2022-07-04 21:23:27,393 [mysql_client.py:83, _execute] sql get_one finish 0.005409s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,428 [mysql_client.py:83, _execute] sql execute finish 0.005774s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.7', 'MIT', '2021-04-07', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,434 [mysql_client.py:83, _execute] sql get_one finish 0.005804s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,440 [mysql_client.py:83, _execute] sql get_one finish 0.005536s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.6' None
+[INFO] 2022-07-04 21:23:27,445 [mysql_client.py:83, _execute] sql get_one finish 0.005166s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,480 [mysql_client.py:83, _execute] sql execute finish 0.006511s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.6', 'MIT', '2021-03-22', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,496 [mysql_client.py:83, _execute] sql get_one finish 0.016375s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,517 [mysql_client.py:83, _execute] sql get_one finish 0.020503s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.5' None
+[INFO] 2022-07-04 21:23:27,532 [mysql_client.py:83, _execute] sql get_one finish 0.015351s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,585 [mysql_client.py:83, _execute] sql execute finish 0.015351s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.5', 'MIT', '2021-03-08', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,593 [mysql_client.py:83, _execute] sql get_one finish 0.007375s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,603 [mysql_client.py:83, _execute] sql get_one finish 0.009840s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.4' None
+[INFO] 2022-07-04 21:23:27,609 [mysql_client.py:83, _execute] sql get_one finish 0.005305s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,653 [mysql_client.py:83, _execute] sql execute finish 0.005558s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.4', 'MIT', '2021-03-08', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:27,660 [mysql_client.py:83, _execute] sql get_one finish 0.005994s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,667 [mysql_client.py:83, _execute] sql get_one finish 0.006771s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.3' None
+[INFO] 2022-07-04 21:23:27,673 [mysql_client.py:83, _execute] sql get_one finish 0.006419s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:27,703 [mysql_client.py:83, _execute] sql execute finish 0.006643s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.3', 'MIT', '2021-03-07', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:28,712 [mysql_client.py:83, _execute] sql get_one finish 0.005913s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:28,719 [mysql_client.py:83, _execute] sql get_one finish 0.006908s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.2' None
+[INFO] 2022-07-04 21:23:28,725 [mysql_client.py:83, _execute] sql get_one finish 0.006305s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:28,755 [mysql_client.py:83, _execute] sql execute finish 0.005862s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.2', 'MIT', '2021-03-03', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:28,761 [mysql_client.py:83, _execute] sql get_one finish 0.006030s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:28,767 [mysql_client.py:83, _execute] sql get_one finish 0.006228s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.1' None
+[INFO] 2022-07-04 21:23:28,773 [mysql_client.py:83, _execute] sql get_one finish 0.005740s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:28,803 [mysql_client.py:83, _execute] sql execute finish 0.005334s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.1', 'MIT', '2021-03-03', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:28,810 [mysql_client.py:83, _execute] sql get_one finish 0.006654s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:28,816 [mysql_client.py:83, _execute] sql get_one finish 0.006297s: select id, package_type from `package_version` where package_name= 'aki-xtee' and package_type='cargo' and `version`='0.1.0' None
+[INFO] 2022-07-04 21:23:28,822 [mysql_client.py:83, _execute] sql get_one finish 0.006208s: select id, package_type from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:28,861 [mysql_client.py:83, _execute] sql execute finish 0.009833s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.0', 'MIT', '2021-02-26', 'aki-xtee', 69, 'cargo', 'MIT OR Apache-2.0') None
+[INFO] 2022-07-04 21:23:28,880 [mysql_client.py:83, _execute] sql get_one finish 0.017683s: select id from package_info where package_name='aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:48,200 [mysql_client.py:83, _execute] sql get_one finish 0.051249s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:48,214 [mysql_client.py:83, _execute] sql get_one finish 0.013654s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:48,219 [mysql_client.py:83, _execute] sql get_one finish 0.005541s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:48,225 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
 Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
-    connection = self._available_connections.pop()
-IndexError: pop from empty list
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
-    with self.pool.get_connection().cursor(cursor_class) as cursor:
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
-    connection = self.make_connection()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
-    return self.connection_class(**self.connection_kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
-    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
-    self.connect()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
-    self._request_authentication()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
-    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
     packet.raise_for_error()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
     err.raise_mysql_exception(self._data)
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
-[ERROR] 2022-06-29 10:24:27,446 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_version` where package_name= 'abstract_integers' and package_type='cargo' None
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:48,231 [mysql_client.py:83, _execute] sql get_one finish 0.005459s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:49,248 [mysql_client.py:83, _execute] sql get_one finish 0.005346s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:49,253 [mysql_client.py:83, _execute] sql get_one finish 0.005028s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:49,259 [mysql_client.py:83, _execute] sql get_one finish 0.005827s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:49,265 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
 Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
-    connection = self._available_connections.pop()
-IndexError: pop from empty list
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
-    with self.pool.get_connection().cursor(cursor_class) as cursor:
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
-    connection = self.make_connection()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
-    return self.connection_class(**self.connection_kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
-    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
-    self.connect()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
-    self._request_authentication()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
-    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
     packet.raise_for_error()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
     err.raise_mysql_exception(self._data)
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
-[ERROR] 2022-06-29 10:24:28,514 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_info` where package_name= 'abstract_integers' and package_type='cargo' None
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:49,270 [mysql_client.py:83, _execute] sql get_one finish 0.005301s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,301 [mysql_client.py:83, _execute] sql get_one finish 0.005578s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,307 [mysql_client.py:83, _execute] sql get_one finish 0.005510s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,313 [mysql_client.py:83, _execute] sql get_one finish 0.006468s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,318 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
 Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
-    connection = self._available_connections.pop()
-IndexError: pop from empty list
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
-    with self.pool.get_connection().cursor(cursor_class) as cursor:
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
-    connection = self.make_connection()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
-    return self.connection_class(**self.connection_kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
-    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
-    self.connect()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
-    self._request_authentication()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
-    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
     packet.raise_for_error()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
     err.raise_mysql_exception(self._data)
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
-[ERROR] 2022-06-29 10:24:28,523 [mysql_client.py:85, _execute] sql get_one error: select id, package_type from `package_version` where package_name= 'abstract_integers' and package_type='cargo' None
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,323 [mysql_client.py:83, _execute] sql get_one finish 0.004988s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,338 [mysql_client.py:83, _execute] sql get_one finish 0.005109s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,347 [mysql_client.py:83, _execute] sql get_one finish 0.009228s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,353 [mysql_client.py:83, _execute] sql get_one finish 0.005609s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,359 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
 Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 86, in get_connection
-    connection = self._available_connections.pop()
-IndexError: pop from empty list
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 75, in _execute
-    with self.pool.get_connection().cursor(cursor_class) as cursor:
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 89, in get_connection
-    connection = self.make_connection()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 101, in make_connection
-    return self.connection_class(**self.connection_kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_pool.py", line 17, in __init__
-    super(MysqlConnectWrapper, self).__init__(*args, **kwargs)
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 353, in __init__
-    self.connect()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 633, in connect
-    self._request_authentication()
-  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 907, in _request_authentication
-    auth_packet = self._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
     packet.raise_for_error()
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
     err.raise_mysql_exception(self._data)
   File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
-pymysql.err.OperationalError: (1045, "Access denied for user 'data_center'@'223.71.70.154' (using password: YES)")
-[INFO] 2022-06-29 10:24:29,544 [blocking_connection.py:787, close] Closing connection (200): Normal shutdown
-[INFO] 2022-06-29 10:24:29,544 [channel.py:535, close] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
-[INFO] 2022-06-29 10:24:29,546 [channel.py:1123, _on_closeok] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
-[INFO] 2022-06-29 10:24:29,546 [connection.py:1295, close] Closing connection (200): 'Normal shutdown'
-[INFO] 2022-06-29 10:24:29,546 [io_services_utils.py:731, abort] Aborting transport connection: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-[INFO] 2022-06-29 10:24:29,547 [io_services_utils.py:904, _initiate_abort] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-[INFO] 2022-06-29 10:24:29,547 [io_services_utils.py:869, _deactivate] Deactivating transport: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-[INFO] 2022-06-29 10:24:29,547 [connection.py:1996, _on_stream_terminated] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
-[INFO] 2022-06-29 10:24:29,547 [connection.py:2065, _on_stream_terminated] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-[INFO] 2022-06-29 10:24:29,547 [io_services_utils.py:882, _close_and_finalize] Closing transport socket and unlinking: state=3; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-[INFO] 2022-06-29 10:24:29,547 [blocking_connection.py:525, _flush_output] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
-SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001A888626970> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
-Closing connection (200): 'Normal shutdown'
-Aborting transport connection: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-_AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-Deactivating transport: state=1; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
-AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,365 [mysql_client.py:83, _execute] sql get_one finish 0.005618s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,381 [mysql_client.py:83, _execute] sql get_one finish 0.005600s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,386 [mysql_client.py:83, _execute] sql get_one finish 0.005686s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,392 [mysql_client.py:83, _execute] sql get_one finish 0.005419s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,398 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,404 [mysql_client.py:83, _execute] sql get_one finish 0.006060s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,421 [mysql_client.py:83, _execute] sql get_one finish 0.005963s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,427 [mysql_client.py:83, _execute] sql get_one finish 0.006216s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,433 [mysql_client.py:83, _execute] sql get_one finish 0.005829s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,439 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,445 [mysql_client.py:83, _execute] sql get_one finish 0.005184s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,462 [mysql_client.py:83, _execute] sql get_one finish 0.005259s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,468 [mysql_client.py:83, _execute] sql get_one finish 0.005822s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,474 [mysql_client.py:83, _execute] sql get_one finish 0.006568s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,481 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,487 [mysql_client.py:83, _execute] sql get_one finish 0.005184s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,504 [mysql_client.py:83, _execute] sql get_one finish 0.005841s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,510 [mysql_client.py:83, _execute] sql get_one finish 0.005358s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,516 [mysql_client.py:83, _execute] sql get_one finish 0.005031s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,522 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,528 [mysql_client.py:83, _execute] sql get_one finish 0.005968s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,544 [mysql_client.py:83, _execute] sql get_one finish 0.005732s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,551 [mysql_client.py:83, _execute] sql get_one finish 0.007419s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,557 [mysql_client.py:83, _execute] sql get_one finish 0.005340s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,563 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,570 [mysql_client.py:83, _execute] sql get_one finish 0.005898s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,586 [mysql_client.py:83, _execute] sql get_one finish 0.005671s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,591 [mysql_client.py:83, _execute] sql get_one finish 0.004768s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,597 [mysql_client.py:83, _execute] sql get_one finish 0.005408s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,602 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,608 [mysql_client.py:83, _execute] sql get_one finish 0.005385s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,626 [mysql_client.py:83, _execute] sql get_one finish 0.005984s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,631 [mysql_client.py:83, _execute] sql get_one finish 0.004986s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,636 [mysql_client.py:83, _execute] sql get_one finish 0.005079s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,640 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,646 [mysql_client.py:83, _execute] sql get_one finish 0.004681s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,662 [mysql_client.py:83, _execute] sql get_one finish 0.004844s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,668 [mysql_client.py:83, _execute] sql get_one finish 0.006230s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,673 [mysql_client.py:83, _execute] sql get_one finish 0.004810s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,679 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,685 [mysql_client.py:83, _execute] sql get_one finish 0.006015s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,702 [mysql_client.py:83, _execute] sql get_one finish 0.005718s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,707 [mysql_client.py:83, _execute] sql get_one finish 0.005024s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,712 [mysql_client.py:83, _execute] sql get_one finish 0.005373s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,717 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,723 [mysql_client.py:83, _execute] sql get_one finish 0.005374s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,738 [mysql_client.py:83, _execute] sql get_one finish 0.004619s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,743 [mysql_client.py:83, _execute] sql get_one finish 0.004988s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,748 [mysql_client.py:83, _execute] sql get_one finish 0.004932s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,756 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,762 [mysql_client.py:83, _execute] sql get_one finish 0.005027s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,778 [mysql_client.py:83, _execute] sql get_one finish 0.005519s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,784 [mysql_client.py:83, _execute] sql get_one finish 0.005113s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,789 [mysql_client.py:83, _execute] sql get_one finish 0.005681s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,794 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,800 [mysql_client.py:83, _execute] sql get_one finish 0.005439s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,816 [mysql_client.py:83, _execute] sql get_one finish 0.005362s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,822 [mysql_client.py:83, _execute] sql get_one finish 0.005611s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,826 [mysql_client.py:83, _execute] sql get_one finish 0.004785s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,832 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,838 [mysql_client.py:83, _execute] sql get_one finish 0.005726s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,856 [mysql_client.py:83, _execute] sql get_one finish 0.005561s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,862 [mysql_client.py:83, _execute] sql get_one finish 0.005997s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,868 [mysql_client.py:83, _execute] sql get_one finish 0.005827s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,873 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,879 [mysql_client.py:83, _execute] sql get_one finish 0.005573s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,895 [mysql_client.py:83, _execute] sql get_one finish 0.005608s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,901 [mysql_client.py:83, _execute] sql get_one finish 0.005772s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,906 [mysql_client.py:83, _execute] sql get_one finish 0.005304s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,911 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,917 [mysql_client.py:83, _execute] sql get_one finish 0.005127s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,934 [mysql_client.py:83, _execute] sql get_one finish 0.005217s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,939 [mysql_client.py:83, _execute] sql get_one finish 0.005733s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,945 [mysql_client.py:83, _execute] sql get_one finish 0.005262s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,950 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,955 [mysql_client.py:83, _execute] sql get_one finish 0.005369s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,975 [mysql_client.py:83, _execute] sql get_one finish 0.005690s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,980 [mysql_client.py:83, _execute] sql get_one finish 0.005254s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:50,986 [mysql_client.py:83, _execute] sql get_one finish 0.005776s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:50,991 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:50,998 [mysql_client.py:83, _execute] sql get_one finish 0.006109s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,014 [mysql_client.py:83, _execute] sql get_one finish 0.005023s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,020 [mysql_client.py:83, _execute] sql get_one finish 0.005807s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,026 [mysql_client.py:83, _execute] sql get_one finish 0.005392s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:51,032 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:51,038 [mysql_client.py:83, _execute] sql get_one finish 0.005224s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,053 [mysql_client.py:83, _execute] sql get_one finish 0.005980s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,059 [mysql_client.py:83, _execute] sql get_one finish 0.005935s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,066 [mysql_client.py:83, _execute] sql get_one finish 0.007357s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:51,073 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:51,079 [mysql_client.py:83, _execute] sql get_one finish 0.004964s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,095 [mysql_client.py:83, _execute] sql get_one finish 0.005588s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,100 [mysql_client.py:83, _execute] sql get_one finish 0.005493s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,106 [mysql_client.py:83, _execute] sql get_one finish 0.005656s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:51,111 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:51,118 [mysql_client.py:83, _execute] sql get_one finish 0.005725s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,134 [mysql_client.py:83, _execute] sql get_one finish 0.005536s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,140 [mysql_client.py:83, _execute] sql get_one finish 0.005769s: select id, package_type, package_name from `package_info` where package_name= 'aki-xtee' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,145 [mysql_client.py:83, _execute] sql get_one finish 0.004717s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:51,150 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aki-xtee', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'aki-xtee-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:51,156 [mysql_client.py:83, _execute] sql get_one finish 0.005497s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,578 [mysql_client.py:83, _execute] sql get_one finish 0.008167s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,585 [mysql_client.py:83, _execute] sql get_one finish 0.006559s: select id, package_type from `package_version` where package_name= 'dnspod-ddns' and package_type='cargo' and `version`='0.1.5' None
+[INFO] 2022-07-04 21:23:51,591 [mysql_client.py:83, _execute] sql execute finish 0.005717s: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('dnspod-ddns', 'cargo', '', '') None
+[INFO] 2022-07-04 21:23:51,596 [mysql_client.py:83, _execute] sql get_one finish 0.005636s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:51,629 [mysql_client.py:83, _execute] sql execute finish 0.005362s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.5', 'MIT', '2022-06-27', 'dnspod-ddns', 94, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:52,642 [mysql_client.py:83, _execute] sql get_one finish 0.006182s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,648 [mysql_client.py:83, _execute] sql get_one finish 0.006272s: select id, package_type from `package_version` where package_name= 'dnspod-ddns' and package_type='cargo' and `version`='0.1.4' None
+[INFO] 2022-07-04 21:23:52,654 [mysql_client.py:83, _execute] sql get_one finish 0.006171s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,689 [mysql_client.py:83, _execute] sql execute finish 0.005193s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.4', 'MIT', '2022-06-10', 'dnspod-ddns', 94, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:52,695 [mysql_client.py:83, _execute] sql get_one finish 0.005503s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,703 [mysql_client.py:83, _execute] sql get_one finish 0.007839s: select id, package_type from `package_version` where package_name= 'dnspod-ddns' and package_type='cargo' and `version`='0.1.3' None
+[INFO] 2022-07-04 21:23:52,709 [mysql_client.py:83, _execute] sql get_one finish 0.006047s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,745 [mysql_client.py:83, _execute] sql execute finish 0.004991s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.3', 'MIT', '2022-06-10', 'dnspod-ddns', 94, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:52,751 [mysql_client.py:83, _execute] sql get_one finish 0.005589s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,757 [mysql_client.py:83, _execute] sql get_one finish 0.006342s: select id, package_type from `package_version` where package_name= 'dnspod-ddns' and package_type='cargo' and `version`='0.1.2' None
+[INFO] 2022-07-04 21:23:52,763 [mysql_client.py:83, _execute] sql get_one finish 0.005945s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,796 [mysql_client.py:83, _execute] sql execute finish 0.006244s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.2', 'MIT', '2022-05-27', 'dnspod-ddns', 94, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:52,805 [mysql_client.py:83, _execute] sql get_one finish 0.009414s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,812 [mysql_client.py:83, _execute] sql get_one finish 0.006421s: select id, package_type from `package_version` where package_name= 'dnspod-ddns' and package_type='cargo' and `version`='0.1.1' None
+[INFO] 2022-07-04 21:23:52,818 [mysql_client.py:83, _execute] sql get_one finish 0.006647s: select id, package_type from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:52,852 [mysql_client.py:83, _execute] sql execute finish 0.005846s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.1.1', 'MIT', '2022-05-27', 'dnspod-ddns', 94, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:52,858 [mysql_client.py:83, _execute] sql get_one finish 0.006230s: select id from package_info where package_name='dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:53,045 [mysql_client.py:83, _execute] sql get_one finish 0.005710s: select id, package_type, package_name from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:53,050 [mysql_client.py:83, _execute] sql get_one finish 0.005944s: select id, package_type, package_name from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:53,056 [mysql_client.py:83, _execute] sql get_one finish 0.005982s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:53,063 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('dnspod-ddns', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'dnspod-ddns-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:53,070 [mysql_client.py:83, _execute] sql get_one finish 0.005472s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,098 [mysql_client.py:83, _execute] sql get_one finish 0.006157s: select id, package_type, package_name from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,104 [mysql_client.py:83, _execute] sql get_one finish 0.006226s: select id, package_type, package_name from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,109 [mysql_client.py:83, _execute] sql get_one finish 0.005189s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:54,116 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('dnspod-ddns', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'dnspod-ddns-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:54,123 [mysql_client.py:83, _execute] sql get_one finish 0.005644s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,145 [mysql_client.py:83, _execute] sql get_one finish 0.005989s: select id, package_type, package_name from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,151 [mysql_client.py:83, _execute] sql get_one finish 0.005102s: select id, package_type, package_name from `package_info` where package_name= 'dnspod-ddns' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,156 [mysql_client.py:83, _execute] sql get_one finish 0.005217s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:54,162 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('dnspod-ddns', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'dnspod-ddns-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:54,168 [mysql_client.py:83, _execute] sql get_one finish 0.005818s: select id, package_type, package_name  from `package_info` where package_name= 'anyhow' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,689 [mysql_client.py:83, _execute] sql get_one finish 0.005913s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,695 [mysql_client.py:83, _execute] sql get_one finish 0.006332s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='1.0.1' None
+[INFO] 2022-07-04 21:23:54,701 [mysql_client.py:83, _execute] sql execute finish 0.006267s: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+[INFO] 2022-07-04 21:23:54,708 [mysql_client.py:83, _execute] sql get_one finish 0.006654s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,741 [mysql_client.py:83, _execute] sql execute finish 0.005868s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('1.0.1', 'MIT', '2021-03-31', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:54,747 [mysql_client.py:83, _execute] sql get_one finish 0.005982s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,754 [mysql_client.py:83, _execute] sql get_one finish 0.007090s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='1.0.0' None
+[INFO] 2022-07-04 21:23:54,761 [mysql_client.py:83, _execute] sql get_one finish 0.007053s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,794 [mysql_client.py:83, _execute] sql execute finish 0.005910s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('1.0.0', 'MIT', '2021-03-26', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:54,800 [mysql_client.py:83, _execute] sql get_one finish 0.005990s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,807 [mysql_client.py:83, _execute] sql get_one finish 0.005795s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.8.0-rc.1' None
+[INFO] 2022-07-04 21:23:54,812 [mysql_client.py:83, _execute] sql get_one finish 0.005036s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,843 [mysql_client.py:83, _execute] sql execute finish 0.006130s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.8.0-rc.1', 'MIT', '2021-03-14', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:54,849 [mysql_client.py:83, _execute] sql get_one finish 0.006073s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,855 [mysql_client.py:83, _execute] sql get_one finish 0.006193s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.7.2' None
+[INFO] 2022-07-04 21:23:54,861 [mysql_client.py:83, _execute] sql get_one finish 0.006013s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,893 [mysql_client.py:83, _execute] sql execute finish 0.004900s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.7.2', 'MIT', '2021-03-02', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:54,900 [mysql_client.py:83, _execute] sql get_one finish 0.006669s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,906 [mysql_client.py:83, _execute] sql get_one finish 0.005773s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.7.1' None
+[INFO] 2022-07-04 21:23:54,912 [mysql_client.py:83, _execute] sql get_one finish 0.006265s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,948 [mysql_client.py:83, _execute] sql execute finish 0.005798s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.7.1', 'MIT', '2021-02-16', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:54,955 [mysql_client.py:83, _execute] sql get_one finish 0.007332s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,961 [mysql_client.py:83, _execute] sql get_one finish 0.005476s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.7.0' None
+[INFO] 2022-07-04 21:23:54,966 [mysql_client.py:83, _execute] sql get_one finish 0.005352s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:54,995 [mysql_client.py:83, _execute] sql execute finish 0.004992s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.7.0', 'MIT', '2021-02-02', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:55,001 [mysql_client.py:83, _execute] sql get_one finish 0.005529s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,006 [mysql_client.py:83, _execute] sql get_one finish 0.004986s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.6.3' None
+[INFO] 2022-07-04 21:23:55,011 [mysql_client.py:83, _execute] sql get_one finish 0.004986s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,044 [mysql_client.py:83, _execute] sql execute finish 0.005717s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.6.3', 'MIT', '2021-01-14', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:55,049 [mysql_client.py:83, _execute] sql get_one finish 0.005119s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,057 [mysql_client.py:83, _execute] sql get_one finish 0.008492s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.6.0' None
+[INFO] 2022-07-04 21:23:55,063 [mysql_client.py:83, _execute] sql get_one finish 0.005810s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,091 [mysql_client.py:83, _execute] sql execute finish 0.004677s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.6.0', 'MIT', '2020-12-22', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:55,097 [mysql_client.py:83, _execute] sql get_one finish 0.004987s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,101 [mysql_client.py:83, _execute] sql get_one finish 0.004797s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.5.4' None
+[INFO] 2022-07-04 21:23:55,107 [mysql_client.py:83, _execute] sql get_one finish 0.004951s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,141 [mysql_client.py:83, _execute] sql execute finish 0.005518s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.5.4', 'MIT', '2020-12-09', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:55,147 [mysql_client.py:83, _execute] sql get_one finish 0.005959s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,152 [mysql_client.py:83, _execute] sql get_one finish 0.005272s: select id, package_type from `package_version` where package_name= 'ajour-widgets' and package_type='cargo' and `version`='0.5.4-rc.1' None
+[INFO] 2022-07-04 21:23:55,160 [mysql_client.py:83, _execute] sql get_one finish 0.007511s: select id, package_type from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,192 [mysql_client.py:83, _execute] sql execute finish 0.005613s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.5.4-rc.1', 'MIT', '2020-12-03', 'ajour-widgets', 98, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:55,197 [mysql_client.py:83, _execute] sql get_one finish 0.005823s: select id from package_info where package_name='ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,424 [mysql_client.py:83, _execute] sql get_one finish 0.006460s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,430 [mysql_client.py:83, _execute] sql get_one finish 0.005472s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,435 [mysql_client.py:83, _execute] sql get_one finish 0.005414s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,441 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,447 [mysql_client.py:83, _execute] sql get_one finish 0.006091s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,467 [mysql_client.py:83, _execute] sql get_one finish 0.006377s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,473 [mysql_client.py:83, _execute] sql get_one finish 0.005971s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,479 [mysql_client.py:83, _execute] sql get_one finish 0.005713s: select id, package_type, package_name  from `package_info` where package_name= 'iced_graphics' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,485 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,492 [mysql_client.py:83, _execute] sql get_one finish 0.005594s: select id, package_type, package_name  from `package_info` where package_name= 'iced_graphics' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,523 [mysql_client.py:83, _execute] sql get_one finish 0.005096s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,529 [mysql_client.py:83, _execute] sql get_one finish 0.005821s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,535 [mysql_client.py:83, _execute] sql get_one finish 0.006203s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,540 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,547 [mysql_client.py:83, _execute] sql get_one finish 0.006194s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,566 [mysql_client.py:83, _execute] sql get_one finish 0.005762s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,573 [mysql_client.py:83, _execute] sql get_one finish 0.006331s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,579 [mysql_client.py:83, _execute] sql get_one finish 0.006342s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,585 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,592 [mysql_client.py:83, _execute] sql get_one finish 0.005756s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,611 [mysql_client.py:83, _execute] sql get_one finish 0.007146s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,617 [mysql_client.py:83, _execute] sql get_one finish 0.005845s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,623 [mysql_client.py:83, _execute] sql get_one finish 0.006219s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,630 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,636 [mysql_client.py:83, _execute] sql get_one finish 0.005646s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,656 [mysql_client.py:83, _execute] sql get_one finish 0.005655s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,662 [mysql_client.py:83, _execute] sql get_one finish 0.005078s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,668 [mysql_client.py:83, _execute] sql get_one finish 0.006605s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,675 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,681 [mysql_client.py:83, _execute] sql get_one finish 0.005657s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,700 [mysql_client.py:83, _execute] sql get_one finish 0.005994s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,707 [mysql_client.py:83, _execute] sql get_one finish 0.006411s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,713 [mysql_client.py:83, _execute] sql get_one finish 0.005354s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,718 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,725 [mysql_client.py:83, _execute] sql get_one finish 0.005525s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,745 [mysql_client.py:83, _execute] sql get_one finish 0.006092s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,751 [mysql_client.py:83, _execute] sql get_one finish 0.005553s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,757 [mysql_client.py:83, _execute] sql get_one finish 0.005723s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,763 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,770 [mysql_client.py:83, _execute] sql get_one finish 0.006293s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,792 [mysql_client.py:83, _execute] sql get_one finish 0.006068s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,799 [mysql_client.py:83, _execute] sql get_one finish 0.006901s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,806 [mysql_client.py:83, _execute] sql get_one finish 0.006241s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,812 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,819 [mysql_client.py:83, _execute] sql get_one finish 0.005542s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,839 [mysql_client.py:83, _execute] sql get_one finish 0.005973s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,846 [mysql_client.py:83, _execute] sql get_one finish 0.006117s: select id, package_type, package_name from `package_info` where package_name= 'ajour-widgets' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:55,852 [mysql_client.py:83, _execute] sql get_one finish 0.005804s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[ERROR] 2022-07-04 21:23:55,857 [mysql_client.py:85, _execute] sql execute error: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('ajour-widgets', 'cargo', '', '') None
+Traceback (most recent call last):
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\sqltool\mysql_client.py", line 79, in _execute
+    cursor.result = cursor.execute(sql, args)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\WorkPlace\GitLab\cargo_spider-cargo_info\venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'ajour-widgets-cargo' for key 'package_info.package_info_package_name_package_type_4463b37e_uniq'")
+[INFO] 2022-07-04 21:23:55,864 [mysql_client.py:83, _execute] sql get_one finish 0.005950s: select id, package_type, package_name  from `package_info` where package_name= 'iced_core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:56,275 [mysql_client.py:83, _execute] sql get_one finish 0.005035s: select id, package_type from `package_info` where package_name= 'aktoro-core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:56,282 [mysql_client.py:83, _execute] sql get_one finish 0.006108s: select id, package_type from `package_version` where package_name= 'aktoro-core' and package_type='cargo' and `version`='0.0.0' None
+[INFO] 2022-07-04 21:23:56,289 [mysql_client.py:83, _execute] sql execute finish 0.007555s: insert into `package_info`(`package_name`, `package_type`, `license`, `license_key`) values('aktoro-core', 'cargo', '', '') None
+[INFO] 2022-07-04 21:23:56,296 [mysql_client.py:83, _execute] sql get_one finish 0.006220s: select id, package_type from `package_info` where package_name= 'aktoro-core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:56,332 [mysql_client.py:83, _execute] sql execute finish 0.005943s: insert into `package_version`(`version`, `license`, `publish_time`, `package_name`, `package_id`, `package_type`, `license_key`) values('0.0.0', 'MIT', '2019-12-01', 'aktoro-core', 109, 'cargo', 'MIT') None
+[INFO] 2022-07-04 21:23:56,338 [mysql_client.py:83, _execute] sql get_one finish 0.006081s: select id from package_info where package_name='aktoro-core' and package_type='cargo' None
+[INFO] 2022-07-04 21:23:58,515 [blocking_connection.py:787, close] Closing connection (200): Normal shutdown
+[INFO] 2022-07-04 21:23:58,515 [channel.py:535, close] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
+[INFO] 2022-07-04 21:23:58,517 [channel.py:1123, _on_closeok] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000025B6E57FB80> params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>>
+[INFO] 2022-07-04 21:23:58,517 [connection.py:1295, close] Closing connection (200): 'Normal shutdown'
+[INFO] 2022-07-04 21:23:58,518 [io_services_utils.py:731, abort] Aborting transport connection: state=1; <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52947), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-07-04 21:23:58,518 [io_services_utils.py:904, _initiate_abort] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52947), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-07-04 21:23:58,518 [io_services_utils.py:869, _deactivate] Deactivating transport: state=1; <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52947), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-07-04 21:23:58,518 [connection.py:1996, _on_stream_terminated] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+[INFO] 2022-07-04 21:23:58,518 [connection.py:2065, _on_stream_terminated] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+[INFO] 2022-07-04 21:23:58,518 [io_services_utils.py:882, _close_and_finalize] Closing transport socket and unlinking: state=3; <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52947), raddr=('127.0.0.1', 5672)>
+[INFO] 2022-07-04 21:23:58,518 [blocking_connection.py:525, _flush_output] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
 Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-Closing transport socket and unlinking: state=3; <socket.socket fd=564, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 56685), raddr=('127.0.0.1', 5672)>
+Closing transport socket and unlinking: state=3; <socket.socket fd=660, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52947), raddr=('127.0.0.1', 5672)>
 User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=127.0.0.1 port=5672 virtual_host=cargo_vhost ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')

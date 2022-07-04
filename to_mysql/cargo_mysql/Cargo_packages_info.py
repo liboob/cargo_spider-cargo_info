@@ -10,7 +10,7 @@ logger = LoggerClass('python-package', 'cargo', is_print=1)
 
 from package.lj_sqlpackage import *
 
-insert_to_db_tool = SqlTool(host='mysql.center.spdx.cn', port=3306, user='data_center', pwd='123456', db='52KIXFwbh4zG',
+insert_to_db_tool = SqlTool(host='mysql.center.spdx.cn', port=3306, user='data_center', pwd='52KIXFwbh4zG', db='data_center',
                             charset='utf8mb4')
 
 
@@ -242,43 +242,10 @@ class Cargo:
             description = result.get('description')
             versions = result.get('versions')
             info_license = ''
+            # license_key = versions.get('license')
+            # print(license_key)
 
-            # insert_data_info = {'versions_count': versions_count,
-            #                     'package_name': package_name, 'latest_release_time': latest_release_time,
-            #                     'description': description, 'latest_release': latest_release, 'home_page': home_page,
-            #                     'license': info_license, 'lj_package_id': lj_package_id,
-            #                     'github_url': github_url,
-            #                     'verified_license': license_key(info_license) if info_license else ''
-            #                     }
-            # info_str = 'lj_package_id,package_name,home_page,latest_release_time,latest_release,description,license,verified_license'.split(
-            #     ',')
 
-            # info信息入库
-            log_data = {
-                'log_type': '入库',
-                'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_packages_info',
-                'data_content': {
-                    'package_name': package_name,
-                    'package_version': None,
-                    'package_type': 'cargo'
-                },
-                'data_status': None
-            }
-            try:
-                info_mes = PackageVersion(package_name, package_type, description, home_page, github_url, info_license)
-                print(info_mes)
-                is_insert = insert_to_db_tool.package_version(info_mes)
-                # is_insert = data_to_db(insert_data_info, self.conn_xx, 'cargo_packages_info', info_str)
-                # print(insert_data_info)
-                if is_insert == 1:
-                    log_data['data_status'] = '新增'
-                elif is_insert == 2:
-                    log_data['data_status'] = '更新'
-                if is_insert != 0:
-                    logger.info(f'{package_name} 入库成功', extra=log_data)
-                self.collection.update({'_id': result.get('_id')}, {'$set': {"is_insert": 1}})
-            except Exception as e:
-                logger.error(f'{package_name} 入库失败，{e}', extra=log_data)
 
             # version信息处理并入库
             for version_results in versions:
@@ -289,7 +256,7 @@ class Cargo:
                 if version == latest_release:
                     info_license = license
                 # ver_license = self.verify_license(license)
-                ver_license = license_key(license) if license else ''
+                # ver_license = license_key(license) if license else ''
                 log_data = {
                     'log_type': '清洗',
                     'handle_from_table': f'{MONGO_HOST}:{MYSQL_PORT}/Cargo/Cargo_info_versions',
@@ -297,16 +264,16 @@ class Cargo:
                     'handle_from_field': 'license',
                     'handle_to_field': 'verified_license',
                     'handle_from_value': license,
-                    'handle_to_value': ver_license,
+                    # 'handle_to_value': ver_license,
                     'data_content': {
                         'package_name': package_name,
                         'package_version': version,
                         'package_type': 'cargo'
                     }
                 }
-                if not ver_license:
-                    ver_license = license
-                    logger.error(f'字段:{log_data["handle_from_field"]} 清洗失败', extra=log_data)
+                # if not ver_license:
+                #     ver_license = license
+                #     logger.error(f'字段:{log_data["handle_from_field"]} 清洗失败', extra=log_data)
 
                 # insert_data_version = {"package_name": package_name, 'version': version,
                 #                        "published_time": published_time, 'license': license,
@@ -328,9 +295,10 @@ class Cargo:
                 }
                 # version信息入库
                 try:
-
-                    version_mes = PackageVersion(package_name, package_type, version, license, published_time)
+                    version_mes = PackageVersion(package_name, package_type, version, published_time, info_license)
+                    print(package_name, package_type, version, info_license, published_time)
                     is_insert = insert_to_db_tool.package_version(version_mes)
+                    # print(is_insert)
                     # is_insert = data_to_db(insert_data_version, self.conn_xx, 'cargo_package_versions', version_str)
                     if is_insert == 1:
                         log_data['data_status'] = '新增'
@@ -341,7 +309,42 @@ class Cargo:
                 except Exception as e:
                     logger.error(f'{package_name} 入库失败，{e}', extra=log_data)
 
-
+            # insert_data_info = {'versions_count': versions_count,
+            #                     'package_name': package_name, 'latest_release_time': latest_release_time,
+            #                     'description': description, 'latest_release': latest_release, 'home_page': home_page,
+            #                     'license': info_license, 'lj_package_id': lj_package_id,
+            #                     'github_url': github_url,
+            #                     'verified_license': license_key(info_license) if info_license else ''
+            #                     }
+            # info_str = 'lj_package_id,package_name,home_page,latest_release_time,latest_release,description,license,verified_license'.split(
+            #     ',')
+            # info信息入库
+            log_data = {
+                'log_type': '入库',
+                'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_packages_info',
+                'data_content': {
+                    'package_name': package_name,
+                    'package_version': None,
+                    'package_type': 'cargo'
+                },
+                'data_status': None
+            }
+            try:
+                print("info的信息如下：")
+                print(package_name, package_type, description, home_page, github_url, info_license)
+                info_mes = PackageInfo(package_name, package_type, description, home_page, github_url, info_license)
+                is_insert = insert_to_db_tool.package_info(info_mes)
+                # is_insert = data_to_db(insert_data_info, self.conn_xx, 'cargo_packages_info', info_str)
+                # print(insert_data_info)
+                if is_insert == 1:
+                    log_data['data_status'] = '新增'
+                elif is_insert == 2:
+                    log_data['data_status'] = '更新'
+                if is_insert != 0:
+                    logger.info(f'{package_name} 入库成功', extra=log_data)
+                self.collection.update({'_id': result.get('_id')}, {'$set': {"is_insert": 1}})
+            except Exception as e:
+                logger.error(f'{package_name} 入库失败，{e}', extra=log_data)
 
 
 def info_main(package_name, package_type):
