@@ -153,4 +153,37 @@
       "yanked": true
     }
   ]
+},
+
+
+{
+  "checksum": "65602df18da7bd5b76375c76f367710aa825e4b217410c1b154f8a036a269a7e",
+  "configs": {
+    "erlang.mk": "dep_animals_kmeelu = hex 0.1.0",
+    "mix.exs": "{:animals_kmeelu, \"~> 0.1.0\"}",
+    "rebar.config": "{animals_kmeelu, \"0.1.0\"}"
+  },
+  "docs_html_url": "https://hexdocs.pm/animals_kmeelu/0.1.0/",
+  "downloads": 383,
+  "has_docs": true,
+  "html_url": "https://hex.pm/packages/animals_kmeelu/0.1.0",
+  "inserted_at": "2020-06-28T10:14:49.908694Z",
+  "meta": {
+    "app": "animals_kmeelu",
+    "build_tools": [
+      "mix"
+    ],
+    "elixir": "~> 1.10"
+  },
+  "package_url": "https://hex.pm/api/packages/animals_kmeelu",
+  "publisher": {
+    "email": "kmeelu.52@gmail.com",
+    "url": "https://hex.pm/api/users/kshmee",
+    "username": "kshmee"
+  },
+  "requirements": {},
+  "retirement": null,
+  "updated_at": "2020-06-28T10:14:53.878210Z",
+  "url": "https://hex.pm/api/packages/animals_kmeelu/releases/0.1.0",
+  "version": "0.1.0"
 }

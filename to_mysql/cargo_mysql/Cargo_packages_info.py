@@ -102,12 +102,12 @@ def license_key(document):
 class Cargo:
     def __init__(self):
         # 创建sql连接
-        self.conn_xx = pymysql.connect(host=MYSQL_HOST,
-                                       port=MYSQL_PORT,
-                                       user=MYSQL_USER,
-                                       password=MYSQL_PASSWORD,
-                                       db=MYSQL_DB,
-                                       charset=MYSQL_CHARSET)
+        # self.conn_xx = pymysql.connect(host=MYSQL_HOST,
+        #                                port=MYSQL_PORT,
+        #                                user=MYSQL_USER,
+        #                                password=MYSQL_PASSWORD,
+        #                                db=MYSQL_DB,
+        #                                charset=MYSQL_CHARSET)
 
         # self.license = pymysql.connect(host='192.168.31.17',
         #                                port=3306,
@@ -224,20 +224,21 @@ class Cargo:
         # for result in self.collection.find({'is_insert': {'$exists': False}}):
         for result in self.collection.find({'id': package_name}):
             # print(result)
-            # input()
+            # # input()
+            # print(">>>>>>>>>>>>>>>>>>>")
             yield result
 
     # 主流程
     def cargo_main(self, package_name, package_type):
         for result in self.get_results(package_name):
             package_name = result.get('id')
-            table_name = 'cargo_spider_queue'
-            lj_package_id = LjIdClass().get_lj_package_id(package_name, package_type, table_name)
-            package_url = 'https://crates.io/crates/{}'.format(package_name)
-            versions_count = len(result.get('versions'))
+            # table_name = 'cargo_spider_queue'
+            # lj_package_id = LjIdClass().get_lj_package_id(package_name, package_type, table_name)
+            # package_url = 'https://crates.io/crates/{}'.format(package_name)
+            # versions_count = len(result.get('versions'))
             home_page = result.get('homepage')
             github_url = result.get('repository')
-            latest_release_time = result.get('updated_at')[:10]
+            # latest_release_time = result.get('updated_at')[:10]
             latest_release = result.get('max_version')
             description = result.get('description')
             versions = result.get('versions')
@@ -252,25 +253,25 @@ class Cargo:
                 license = version_results.get('license')
                 version = version_results.get('num')
                 published_time = version_results.get('created_at')[:10]
-                download_url = 'https://crates.io{}'.format(version_results.get('dl_path'))
+                # download_url = 'https://crates.io{}'.format(version_results.get('dl_path'))
                 if version == latest_release:
                     info_license = license
                 # ver_license = self.verify_license(license)
                 # ver_license = license_key(license) if license else ''
-                log_data = {
-                    'log_type': '清洗',
-                    'handle_from_table': f'{MONGO_HOST}:{MYSQL_PORT}/Cargo/Cargo_info_versions',
-                    'handle_to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_package_versions',
-                    'handle_from_field': 'license',
-                    'handle_to_field': 'verified_license',
-                    'handle_from_value': license,
-                    # 'handle_to_value': ver_license,
-                    'data_content': {
-                        'package_name': package_name,
-                        'package_version': version,
-                        'package_type': 'cargo'
-                    }
-                }
+                # log_data = {
+                #     'log_type': '清洗',
+                #     'handle_from_table': f'{MONGO_HOST}:{MYSQL_PORT}/Cargo/Cargo_info_versions',
+                #     'handle_to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_package_versions',
+                #     'handle_from_field': 'license',
+                #     'handle_to_field': 'verified_license',
+                #     'handle_from_value': license,
+                #     # 'handle_to_value': ver_license,
+                #     'data_content': {
+                #         'package_name': package_name,
+                #         'package_version': version,
+                #         'package_type': 'cargo'
+                #     }
+                # }
                 # if not ver_license:
                 #     ver_license = license
                 #     logger.error(f'字段:{log_data["handle_from_field"]} 清洗失败', extra=log_data)
@@ -285,7 +286,6 @@ class Cargo:
                 #     ',')
                 log_data = {
                     'log_type': '入库',
-                    'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_package_versions',
                     'data_content': {
                         'package_name': package_name,
                         'package_version': version,
@@ -321,7 +321,6 @@ class Cargo:
             # info信息入库
             log_data = {
                 'log_type': '入库',
-                'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_packages_info',
                 'data_content': {
                     'package_name': package_name,
                     'package_version': None,

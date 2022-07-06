@@ -81,26 +81,26 @@ class Cargo_dep:
         db = client['Cargo']
         collection_info_versions = db['Cargo_info_versions']
         self.collection_dep = db['Cargo_dep']
-        self.lj_id = pymysql.connect(host=MYSQL_17_HOST,
-                                     port=MYSQL_17_PORT,
-                                     user=MYSQL_17_USER,
-                                     password=MYSQL_17_PASSWORD,
-                                     db=MYSQL_17_DB,
-                                     charset=MYSQL_17_CHARSET,
-                                     cursorclass=pymysql.cursors.DictCursor)
+        # self.lj_id = pymysql.connect(host=MYSQL_17_HOST,
+        #                              port=MYSQL_17_PORT,
+        #                              user=MYSQL_17_USER,
+        #                              password=MYSQL_17_PASSWORD,
+        #                              db=MYSQL_17_DB,
+        #                              charset=MYSQL_17_CHARSET,
+        #                              cursorclass=pymysql.cursors.DictCursor)
         self.xx = pymysql.connect(host=MYSQL_HOST,
                                   port=MYSQL_PORT,
                                   user=MYSQL_USER,
                                   password=MYSQL_PASSWORD,
                                   db=MYSQL_DB,
                                   charset=MYSQL_CHARSET)
-        self.mysql_queue_conn = pymysql.connect(host=MYSQL_QUEUE_HOST,
-                                                port=MYSQL_QUEUE_PORT,
-                                                user=MYSQL_QUEUE_USER,
-                                                password=MYSQL_QUEUE_PASSWORD,
-                                                db=MYSQL_QUEUE_DB,
-                                                charset=MYSQL_QUEUE_CHARSET,
-                                                cursorclass=pymysql.cursors.DictCursor)
+        # self.mysql_queue_conn = pymysql.connect(host=MYSQL_QUEUE_HOST,
+        #                                         port=MYSQL_QUEUE_PORT,
+        #                                         user=MYSQL_QUEUE_USER,
+        #                                         password=MYSQL_QUEUE_PASSWORD,
+        #                                         db=MYSQL_QUEUE_DB,
+        #                                         charset=MYSQL_QUEUE_CHARSET,
+        #                                         cursorclass=pymysql.cursors.DictCursor)
 
     # def get_lj_package_id(self, package_path):
     #     with self.lj_id.cursor(pymysql.cursors.DictCursor) as cursor_package_id:
@@ -163,6 +163,8 @@ class Cargo_dep:
 
     def get_result(self, package_name):
         for result in self.collection_dep.find({'id': package_name}):
+            # print("^^^^^^^^^^^^^^^^^")
+            # print(result)
             yield result
 
     def main(self, package_name, package_type):
@@ -171,17 +173,18 @@ class Cargo_dep:
         for result in self.get_result(package_name):
             package_name = result.get('id')
             package_version = result.get('verson')
-            dependency_type = 'nor'
+            # dependency_type = 'nor'
             dep_mes = PackageDeps(package_name, package_type,
                                   package_version)
-            # dependency_kind = 'normal'
             for dependency in result.get('dependencies', []):
                 # dependency_kind = dependency.get('kind')
                 # print(dependency)
                 dependency_package_version = dependency.get('req')
                 dependency_package_name = dependency.get('crate_id')
-                print(dependency_package_name, dependency_package_version)
-                dep_mes.restructure(dependency_package_name, dependency_package_version,1,2)
+                dependency_type = dependency.get("kind")
+                # print(dependency_package_name, dependency_package_version, dependency_type, 2)
+                dep_mes.restructure(dependency_package_name, dependency_package_version, dependency_type, 2)
+
                 # if dependency_kind != 'dev':
                 #     dependency_package_name = dependency.get('crate_id')
                 #     dependency_package_version = dependency.get('req').replace('^', '')
@@ -205,7 +208,6 @@ class Cargo_dep:
                 #                'compare_md5': compare_md5}
             log_data = {
                 'log_type': '入库',
-                'to_table': f'{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}/cargo_package_dependencies',
                 'data_content': {
                     'package_name': package_name,
                     'package_version': package_version,
@@ -214,7 +216,6 @@ class Cargo_dep:
                 'data_status': None
             }
             try:
-                dependency_type = 'nor'
                 # dep_mes = PackageDeps(package_name, package_type, '', dependency_type,
                 #                       package_version, dependency_package_version)
                 is_insert = insert_to_db_tool.package_deps(dep_mes)

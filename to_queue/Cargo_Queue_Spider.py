@@ -58,11 +58,12 @@ def xx(url):
     #     print('结束')
 
 
+if __name__ == '__main__':
 
-for _ in range(850):
-    url = f'https://crates.io/api/v1/crates?page={_}&per_page=100&sort=alpha'
-    try:
-        xx(url)
-    except Exception as e:
-        print(e)
-        continue
+    for _ in range(871):
+        url = f'https://crates.io/api/v1/crates?page={_}&per_page=100&sort=alpha'
+        try:
+            xx(url)
+        except Exception as e:
+            print(e)
+            continue

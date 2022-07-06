@@ -75,8 +75,7 @@ class InfoSpiderSpider(RabbitSpider):
                 res = self.collection_info_versions.update({'id': crate.get('id')}, {'$set': crate}, True, False)
                 if res.get('nModified') == 1:
                     self.collection_info_versions.update({'id': crate.get('id')}, {'$unset': {"is_insert": ""}},
-                                                         False,
-                                                         True)
+                                                         False,True)
                 sql = 'update cargo_spider_queue set is_crawl=1 where package_name = "{}"'.format(name)
                 with self.conn.cursor() as c:
                     c.execute(sql)

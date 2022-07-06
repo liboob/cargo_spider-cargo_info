@@ -2,7 +2,7 @@ import requests
 import pymongo
 import time
 import pymysql
-from env_setting import *
+from common_utils.env_settings import *
 
 client = pymongo.MongoClient(MONGO_CLIENT)
 db = client['Cargo']

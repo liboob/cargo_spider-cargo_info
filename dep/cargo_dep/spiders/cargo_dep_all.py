@@ -45,4 +45,4 @@ class DepSpider(scrapy.Spider):
 
 
 if __name__ == '__main__':
-    os.system("scrapy crawl cargo_dep")
+    os.system("scrapy crawl cargo_dep_all")

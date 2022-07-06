@@ -26,10 +26,9 @@ def mysql_main(channel, method, header_props, message):
     # get_lj_package_id = CM.LjIdClass()
     # get_lj_package_id(package_name, package_type, 'cargo_spider_queue')
 
+    # input("INFO信息入库完成，接下来开始dep信息")
+    # DEP.dep_main(package_name, package_type)
     channel.basic_ack(delivery_tag=method.delivery_tag)
-    input("INFO信息入库完成，接下来开始dep信息")
-    DEP.dep_main(package_name, package_type)
-
 
 if __name__ == '__main__':
     # while 1:

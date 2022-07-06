@@ -22,9 +22,9 @@ if __name__ == '__main__':
     i = 0
     with conn.cursor(pymysql.cursors.DictCursor) as c:
         while 1:
-            if i == 0:
-                # os.system("python Cargo_Queue_Spider.py")
-                pass
+            # if i == 0:
+            #     os.system("python Cargo_Queue_Spider.py")
+            #     pass
             sql = 'SELECT * FROM `cargo_spider_queue` where is_crawl = 0 and is_delete = 0 limit {},500'.format(
                 i * 500)
 
