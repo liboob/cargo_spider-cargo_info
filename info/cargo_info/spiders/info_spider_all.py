@@ -34,12 +34,12 @@ class InfoSpiderSpider(RabbitSpider):
     collection_info_versions = db['Cargo_info_versions']
 
     conn = pymysql.connect(host=MYSQL_QUEUE_HOST,
-                                  port=MYSQL_QUEUE_PORT,
-                                  user=MYSQL_QUEUE_USER,
-                                  password=MYSQL_QUEUE_PASSWORD,
-                                  db=MYSQL_QUEUE_DB,
-                                  charset=MYSQL_QUEUE_CHARSET,
-                                  cursorclass=pymysql.cursors.DictCursor)
+                           port=MYSQL_QUEUE_PORT,
+                           user=MYSQL_QUEUE_USER,
+                           password=MYSQL_QUEUE_PASSWORD,
+                           db=MYSQL_QUEUE_DB,
+                           charset=MYSQL_QUEUE_CHARSET,
+                           cursorclass=pymysql.cursors.DictCursor)
     handle_httpstatus_list = [404, 403]
 
     def parse(self, response):
@@ -75,7 +75,7 @@ class InfoSpiderSpider(RabbitSpider):
                 res = self.collection_info_versions.update({'id': crate.get('id')}, {'$set': crate}, True, False)
                 if res.get('nModified') == 1:
                     self.collection_info_versions.update({'id': crate.get('id')}, {'$unset': {"is_insert": ""}},
-                                                         False,True)
+                                                         False, True)
                 sql = 'update cargo_spider_queue set is_crawl=1 where package_name = "{}"'.format(name)
                 with self.conn.cursor() as c:
                     c.execute(sql)
