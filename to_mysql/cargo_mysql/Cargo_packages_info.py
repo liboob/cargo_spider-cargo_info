@@ -331,7 +331,7 @@ class Cargo:
             try:
                 print("info的信息如下：")
                 print(package_name, package_type, description, home_page, github_url, info_license)
-                info_mes = PackageInfo(package_name, package_type, description, home_page, github_url, info_license)
+                info_mes = PackageInfo(package_name, package_type, info_license, description, home_page, github_url)
                 is_insert = insert_to_db_tool.package_info(info_mes)
                 # is_insert = data_to_db(insert_data_info, self.conn_xx, 'cargo_packages_info', info_str)
                 # print(insert_data_info)

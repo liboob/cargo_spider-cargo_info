@@ -6,6 +6,7 @@ import pymysql
 import os
 from common_utils.env_settings import *
 
+
 class DepSpider(scrapy.Spider):
     name = 'cargo_dep_all'
     allowed_domains = []

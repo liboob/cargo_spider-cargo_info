@@ -183,7 +183,7 @@ class Cargo_dep:
                 dependency_package_name = dependency.get('crate_id')
                 dependency_type = dependency.get("kind")
                 # print(dependency_package_name, dependency_package_version, dependency_type, 2)
-                dep_mes.restructure(dependency_package_name, dependency_package_version, dependency_type, 2)
+                dep_mes.restructure(dependency_package_name, dependency_package_version, dependency_type,  None)
 
                 # if dependency_kind != 'dev':
                 #     dependency_package_name = dependency.get('crate_id')
